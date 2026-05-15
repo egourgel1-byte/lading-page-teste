@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>:root {
+    --gold: #C9A84C;
+    --dark-green: #0A1A0F;
+    --surface-green: #0F2318;
+    --deep-green: #060F09
+    }
+body {
+    background-color: var(--dark-green);
+    color: #e7e2da;
+    overflow-x: hidden
+    }
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuB6AsupN3vrHLn5nAqTJ_oG7s0xEP-28yXrCVx83hkEC0XbRiUiwZuEkEFNCJs_6Fo8pmuHNO5zqwQc-6q0kWoB6e8CKgXq2tnasBmIunxBTTrM0IehxIhyeiBUafcdsAPC6-KNVFnLyKdQj_ZqLfSi5iLbJR5sHRY-h35GtpJHUf18wfs65TN3Xr_xGC1E13-EXyEOPRyeI2hJRRiwqgNswY7rocWoOeLHeb1pgpD9z981yiGwDFBxOhAHQBT2KTWSUuNERr6NVxD7)
+    }
+.gold-glow {
+    background: radial-gradient(circle at center, rgba(201, 168, 76, 0.12) 0%, rgba(10, 26, 15, 0) 70%)
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+    color: var(--gold)
+    }
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite
+    }
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+        } 100% {
+        transform: translateX(-50%);
+        }
+    }
+.pulsing-glow {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+    animation: pulse 2s infinite
+    }
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+        } 70% {
+        box-shadow: 0 0 0 10px rgba(201, 168, 76, 0);
+        } 100% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+        }
+    }</style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b8cbba",
+                        "secondary": "#e6c364",
+                        "on-secondary": "#3d2e00",
+                        "surface": "#14130f",
+                        "surface-container": "#21201b",
+                        "outline-variant": "#434843",
+                        "on-surface-variant": "#c3c8c1",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-sm": "12px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "gutter": "24px",
+                    },
+                    fontFamily: {
+                        "headline": ["EB Garamond", "serif"],
+                        "body": ["DM Sans", "sans-serif"],
+                        "label-caps": ["DM Sans", "sans-serif"],
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "300" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-caps": ["11px", { lineHeight: "1", letterSpacing: "0.18em", fontWeight: "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body">
+<div class="grain-overlay"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 h-20 flex justify-between items-center px-margin-mobile md:px-gutter">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">menu</span>
+<span class="text-headline-md font-headline tracking-widest uppercase text-secondary">Aliança Golden</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">shopping_bag</span>
+</div>
+</header>
+<!-- Section 1: Hero -->
+<section class="relative pt-32 pb-20 px-margin-mobile flex flex-col items-center text-center gold-glow min-h-[795px] justify-center overflow-hidden">
+<div class="mb-6 inline-flex items-center gap-2 px-3 py-1 border border-secondary/20 rounded-full bg-secondary/5">
+<span class="text-[8px] text-secondary">●</span>
+<span class="text-label-caps font-label-caps text-on-surface">COMPRA · VENDA · AVALIAÇÃO GRATUITA</span>
+</div>
+<h1 class="font-headline text-[52px] leading-[1.1] mb-6 text-on-surface max-w-lg">
+            Compre ou venda <span class="text-secondary italic">ouro</span> com quem percebe do assunto.
+        </h1>
+<p class="font-body font-light text-body-md text-on-surface-variant max-w-sm mb-10">
+            Avaliamos, compramos e vendemos joias com total transparência — sem sair de casa, sem complicações.
+        </p>
+<a class="inline-flex items-center justify-center bg-secondary text-on-secondary px-10 py-4 rounded-full font-bold text-label-caps tracking-widest uppercase transition-transform active:scale-95 shadow-lg shadow-secondary/10" href="#">
+<span class="material-symbols-outlined mr-2 !text-on-secondary text-lg">chat</span> Falar no WhatsApp
+        </a>
+<!-- Trust Marquee -->
+<div class="absolute bottom-10 left-0 w-full overflow-hidden border-y border-outline-variant/10 py-4 bg-surface-container/30 backdrop-blur-sm">
+<div class="marquee-content gap-12 text-label-caps text-secondary/60 items-center">
+<span class="flex items-center gap-4 shrink-0">✦ Sem Compromisso</span>
+<span class="flex items-center gap-4 shrink-0">✦ Resposta em 2h</span>
+<span class="flex items-center gap-4 shrink-0">✦ Pagamento Imediato</span>
+<span class="flex items-center gap-4 shrink-0">✦ Atendimento Discreto</span>
+<span class="flex items-center gap-4 shrink-0">✦ Compra e Venda</span>
+<!-- Duplicate for seamless loop -->
+<span class="flex items-center gap-4 shrink-0">✦ Sem Compromisso</span>
+<span class="flex items-center gap-4 shrink-0">✦ Resposta em 2h</span>
+<span class="flex items-center gap-4 shrink-0">✦ Pagamento Imediato</span>
+<span class="flex items-center gap-4 shrink-0">✦ Atendimento Discreto</span>
+<span class="flex items-center gap-4 shrink-0">✦ Compra e Venda</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Como Funciona -->
+<section class="bg-[#0F2318] py-20 px-margin-mobile">
+<div class="flex justify-center mb-12 border-b border-outline-variant/10">
+<button class="px-6 py-4 text-label-caps font-bold text-secondary border-b-2 border-secondary tracking-widest">QUERO VENDER</button>
+<button class="px-6 py-4 text-label-caps font-medium text-on-surface-variant tracking-widest opacity-50">QUERO COMPRAR</button>
+</div>
+<div class="space-y-12">
+<!-- Step 1 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl bg-secondary/[0.04] border border-secondary/10 relative overflow-hidden">
+<span class="font-headline text-[80px] leading-none text-secondary/20 absolute -top-4 -right-4 italic">1</span>
+<span class="material-symbols-outlined text-4xl mb-2">photo_camera</span>
+<h3 class="text-headline-md font-headline text-secondary">Envie Fotografias</h3>
+<p class="text-body-md font-light text-on-surface-variant">Comece por nos enviar fotos das suas peças via WhatsApp para uma pré-avaliação imediata.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl bg-secondary/[0.04] border border-secondary/10 relative overflow-hidden">
+<span class="font-headline text-[80px] leading-none text-secondary/20 absolute -top-4 -right-4 italic">2</span>
+<span class="material-symbols-outlined text-4xl mb-2">assignment_turned_in</span>
+<h3 class="text-headline-md font-headline text-secondary">Avaliação Justa</h3>
+<p class="text-body-md font-light text-on-surface-variant">Nossos peritos analisam o quilate e estado de conservação baseados no valor atual de mercado.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-6 p-8 rounded-xl bg-secondary/[0.04] border border-secondary/10 relative overflow-hidden">
+<span class="font-headline text-[80px] leading-none text-secondary/20 absolute -top-4 -right-4 italic">3</span>
+<span class="material-symbols-outlined text-4xl mb-2">payments</span>
+<h3 class="text-headline-md font-headline text-secondary">Pagamento Imediato</h3>
+<p class="text-body-md font-light text-on-surface-variant">Após a validação física, o pagamento é realizado no momento, com total discrição e segurança.</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Joias -->
+<section class="bg-[#0A1A0F] py-20 px-margin-mobile">
+<h2 class="text-label-caps text-secondary mb-12 text-center">NOSSAS CATEGORIAS</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">token</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">ANÉIS</span>
+</div>
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">link</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">CORRENTES</span>
+</div>
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">settings_input_antenna</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">BRINCOS</span>
+</div>
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">watch</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">RELÓGIOS</span>
+</div>
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">all_inclusive</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">PULSEIRAS</span>
+</div>
+<div class="border-t border-secondary/30 pt-6 pb-8 flex flex-col items-center gap-4 transition-all hover:bg-secondary/5">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+<span class="text-label-caps text-on-surface tracking-[0.2em]">OUTRAS PEÇAS</span>
+</div>
+</div>
+</section>
+<!-- Section 4: Confiança -->
+<section class="py-20 px-margin-mobile bg-[#0F2318]">
+<div class="grid grid-cols-3 gap-6 mb-16 text-center">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+<span class="text-label-caps text-[9px]">SEGURO</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">lock</span>
+<span class="text-label-caps text-[9px]">DISCRETO</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+<span class="text-label-caps text-[9px]">RÁPIDO</span>
+</div>
+</div>
+<div class="flex justify-around mb-16 border-y border-outline-variant/10 py-10">
+<div class="text-center">
+<div class="text-headline-lg font-headline text-secondary mb-1">500+</div>
+<div class="text-label-caps text-on-surface-variant">AVALIAÇÕES</div>
+</div>
+<div class="text-center">
+<div class="text-headline-lg font-headline text-secondary mb-1">2h</div>
+<div class="text-label-caps text-on-surface-variant">PRAZO MÉDIO</div>
+</div>
+</div>
+<div class="relative pl-8 border-l-[3px] border-secondary">
+<p class="font-headline italic text-xl leading-relaxed text-on-surface">
+                "O processo foi extremamente discreto e profissional. A avaliação foi justa e o pagamento caiu na conta em menos de uma hora."
+            </p>
+<cite class="block mt-4 text-label-caps text-secondary not-italic">— MARIA S., PORTO</cite>
+</div>
+</section>
+<!-- Section 5: Benefícios -->
+<section class="py-20 bg-[#0A1A0F]">
+<h2 class="px-margin-mobile text-label-caps text-secondary mb-8">PORQUÊ ESCOLHER-NOS</h2>
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 px-margin-mobile pb-8">
+<div class="min-w-[240px] snap-center bg-surface-container border border-secondary/15 border-t-2 border-t-secondary p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">home_work</span>
+<h4 class="font-headline text-xl text-on-surface">Sem Deslocação</h4>
+<p class="text-body-md font-light text-on-surface-variant">Nossa equipe vai até você com total discrição.</p>
+</div>
+<div class="min-w-[240px] snap-center bg-surface-container border border-secondary/15 border-t-2 border-t-secondary p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">account_balance_wallet</span>
+<h4 class="font-headline text-xl text-on-surface">Pagamento Imediato</h4>
+<p class="text-body-md font-light text-on-surface-variant">Receba o valor acordado no ato da transação.</p>
+</div>
+<div class="min-w-[240px] snap-center bg-surface-container border border-secondary/15 border-t-2 border-t-secondary p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">calculate</span>
+<h4 class="font-headline text-xl text-on-surface">Avaliação Gratuita</h4>
+<p class="text-body-md font-light text-on-surface-variant">Sem custos ou compromissos de venda.</p>
+</div>
+<div class="min-w-[240px] snap-center bg-surface-container border border-secondary/15 border-t-2 border-t-secondary p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
+<h4 class="font-headline text-xl text-on-surface">Melhor Preço</h4>
+<p class="text-body-md font-light text-on-surface-variant">Garantimos a melhor oferta baseada na cotação.</p>
+</div>
+</div>
+</section>
+<!-- Section 6: CTA Final -->
+<section class="py-32 px-margin-mobile bg-[#060F09] text-center relative overflow-hidden">
+<div class="absolute inset-0 gold-glow opacity-30"></div>
+<div class="relative z-10 space-y-12">
+<div class="space-y-6">
+<h2 class="font-headline text-headline-lg text-secondary">Tome a decisão certa hoje.</h2>
+<p class="text-body-md font-light text-on-surface-variant max-w-sm mx-auto">Seja para desinvestir ou para adquirir uma peça única, estamos aqui para ajudar.</p>
+</div>
+<div class="flex flex-col gap-4 max-w-xs mx-auto">
+<a class="pulsing-glow bg-secondary text-on-secondary py-4 rounded-full font-bold text-label-caps tracking-widest uppercase transition-transform active:scale-95" href="#">
+                    QUERO VENDER AGORA
+                </a>
+<a class="border border-secondary text-secondary py-4 rounded-full font-bold text-label-caps tracking-widest uppercase transition-transform active:scale-95" href="#">
+                    VER CATÁLOGO COMPRA
+                </a>
+</div>
+</div>
+</section>
+<!-- Section 7: Footer -->
+<footer class="bg-surface py-stack-lg px-margin-mobile flex flex-col items-center text-center gap-stack-md border-t border-outline-variant/10">
+<div class="text-headline-md font-headline text-secondary tracking-widest uppercase">ALIANÇA GOLDEN</div>
+<nav class="flex gap-6">
+<a class="text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Privacidade</a>
+<a class="text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Termos</a>
+<a class="text-label-caps text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">WhatsApp</a>
+</nav>
+<p class="text-body-md font-body-md text-on-surface-variant opacity-60">© 2024 Aliança Golden. Todos os direitos reservados.</p>
+</footer>
+<!-- BottomNavBar (Mobile Sticky) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center gap-4 p-4 md:hidden bg-surface-container/80 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_-4px_24px_rgba(201,168,76,0.08)]">
+<button class="flex-1 flex flex-col items-center justify-center border border-secondary text-secondary rounded-full px-4 py-2 text-label-caps font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined mb-1">sell</span>
+            VENDER
+        </button>
+<button class="flex-1 flex flex-col items-center justify-center bg-secondary text-on-secondary rounded-full px-4 py-2 text-label-caps font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined !text-on-secondary mb-1">payments</span>
+            COMPRAR
+        </button>
+</nav>
+<!-- Padding for bottom nav -->
+<div class="h-24 md:hidden"></div>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>
